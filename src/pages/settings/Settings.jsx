@@ -59,7 +59,7 @@ export default function Settings({ setUser }) {
         const storedUser = JSON.parse(localStorage.getItem("userInfo"));
         if (!storedUser?.token) return;
 
-        const res = await axios.get("http://localhost:5000/api/auth/me", {
+        const res = await axios.get("https://kiratalk.onrender.com/api/auth/me", {
           headers: { Authorization: `Bearer ${storedUser.token}` },
         });
 
@@ -80,7 +80,7 @@ export default function Settings({ setUser }) {
       if (!storedUser?.token) return;
 
       const res = await axios.patch(
-        `http://localhost:5000/api/user/${profile._id}`,
+        `https://kiratalk.onrender.com/api/user/${profile._id}`,
         { ...profile, accentColor },
         { headers: { Authorization: `Bearer ${storedUser.token}` } }
       );
@@ -101,7 +101,7 @@ export default function Settings({ setUser }) {
     try {
       const storedUser = JSON.parse(localStorage.getItem("userInfo"));
       await axios.patch(
-        `http://localhost:5000/api/user/${profile._id}`,
+        `https://kiratalk.onrender.com/api/user/${profile._id}`,
         { accentColor: newColor },
         { headers: { Authorization: `Bearer ${storedUser.token}` } }
       );
@@ -125,7 +125,7 @@ export default function Settings({ setUser }) {
       formData.append("profilePic", file);
 
       const res = await axios.post(
-        `http://localhost:5000/api/user/${profile._id}/profile-pic`,
+        `https://kiratalk.onrender.com/api/user/${profile._id}/profile-pic`,
         formData,
         {
           headers: {

@@ -19,7 +19,7 @@
 //         const storedUser = JSON.parse(localStorage.getItem("userInfo"));
 //         if (!storedUser?.token) return;
 
-//         const res = await fetch("http://localhost:5000/api/auth/me", {
+//         const res = await fetch("https://kiratalk.onrender.com/api/auth/me", {
 //           headers: { Authorization: `Bearer ${storedUser.token}` },
 //         });
 
@@ -125,7 +125,7 @@ export default function SideBar({ open, onClose }) {
       try {
         const storedUser = JSON.parse(localStorage.getItem("userInfo"));
         if (!storedUser?.token) return;
-        const res = await fetch("http://localhost:5000/api/auth/me", {
+        const res = await fetch("https://kiratalk.onrender.com/api/auth/me", {
           headers: { Authorization: `Bearer ${storedUser.token}` },
         });
         if (!res.ok) throw new Error("Failed to fetch user");
