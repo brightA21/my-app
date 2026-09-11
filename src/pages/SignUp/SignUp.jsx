@@ -1,7 +1,7 @@
 // SignUp assembles the account-creation heading, form, and login link.
 import { Box } from "@mui/material";
 import SignUpHeader from "./SignUpHeader";
-import SignUpForm from "./signUpForm";
+import SignUpForm from "./SignUpForm";
 import SignUpLink from "./SignUpLink";
 
 export default function SignUp({ setUser }) {
