@@ -15,7 +15,7 @@ export default function SocialButtons({ setUser }) {
   const handleGoogleSuccess = async ({ credential }) => {
     setError('');
     try {
-      const response = await fetch('https://kiratalk.onrender.com/api/auth/google', {
+      const response = await fetch('https://kiratalk-1.onrender.com/api/auth/google', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ credential }),

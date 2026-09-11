@@ -96,7 +96,7 @@ export default function ChatApp() {
 
       if (!threadId) {
         // New thread — create it (backend generates AI title)
-        const res = await fetch('https://kiratalk.onrender.com/api/messages/threads', {
+        const res = await fetch('https://kiratalk-1.onrender.com/api/messages/threads', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${stored.token}` },
           body: JSON.stringify({ message: text }),
@@ -116,7 +116,7 @@ export default function ChatApp() {
         window.dispatchEvent(new CustomEvent('activeThreadChanged', { detail: { _id: data._id, title: data.title } }));
       } else {
         // Existing thread — save user message
-        const saveRes = await fetch(`https://kiratalk.onrender.com/api/messages/threads/${threadId}/messages`, {
+        const saveRes = await fetch(`https://kiratalk-1.onrender.com/api/messages/threads/${threadId}/messages`, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${stored.token}` },
           body: JSON.stringify({ sender: 'user', text }),
@@ -130,7 +130,7 @@ export default function ChatApp() {
 
       // Get real AI reply from Groq via backend
       const replyRes = await fetch(
-        `https://kiratalk.onrender.com/api/messages/threads/${threadId}/ai-reply`,
+        `https://kiratalk-1.onrender.com/api/messages/threads/${threadId}/ai-reply`,
         {
           method: 'POST',
           headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${stored.token}` },
@@ -185,7 +185,7 @@ export default function ChatApp() {
     try {
       const stored = JSON.parse(localStorage.getItem('userInfo'));
       if (!stored?.token) return;
-      const res = await fetch(`https://kiratalk.onrender.com/api/messages/threads/${threadId}`, {
+      const res = await fetch(`https://kiratalk-1.onrender.com/api/messages/threads/${threadId}`, {
         headers: { Authorization: `Bearer ${stored.token}` },
       });
       if (!res.ok) return;

@@ -56,7 +56,7 @@ export default function ChatList({ searchQuery = "", onNavigate }) {
     try {
       const stored = JSON.parse(localStorage.getItem("userInfo"));
       if (!stored?.token) return;
-      const res = await fetch(`https://kiratalk.onrender.com/api/messages/threads/${thread._id}`, {
+      const res = await fetch(`https://kiratalk-1.onrender.com/api/messages/threads/${thread._id}`, {
         method: "DELETE",
         headers: { Authorization: `Bearer ${stored.token}` },
       });
@@ -83,7 +83,7 @@ export default function ChatList({ searchQuery = "", onNavigate }) {
         const stored = JSON.parse(localStorage.getItem("userInfo"));
         if (!stored?.token) return;
 
-        const res = await fetch("https://kiratalk.onrender.com/api/messages/threads", {
+        const res = await fetch("https://kiratalk-1.onrender.com/api/messages/threads", {
           headers: { Authorization: `Bearer ${stored.token}` },
         });
         if (!res.ok) return;
@@ -317,7 +317,7 @@ export default function ChatList({ searchQuery = "", onNavigate }) {
                 const stored = JSON.parse(localStorage.getItem("userInfo"));
                 if (!stored?.token) return;
                 const res = await fetch(
-                  `https://kiratalk.onrender.com/api/messages/threads/${thread._id}`,
+                  `https://kiratalk-1.onrender.com/api/messages/threads/${thread._id}`,
                   {
                     method: "PUT",
                     headers: {

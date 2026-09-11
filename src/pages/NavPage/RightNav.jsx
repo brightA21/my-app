@@ -129,7 +129,7 @@ export default function RightSideBar({ user }) {
       const stored = JSON.parse(localStorage.getItem('userInfo'));
       if (!stored?.token) return;
       const res = await fetch(
-        `https://kiratalk.onrender.com/api/messages/threads/${activeThread._id}`,
+        `https://kiratalk-1.onrender.com/api/messages/threads/${activeThread._id}`,
         { method: 'DELETE', headers: { Authorization: `Bearer ${stored.token}` } }
       );
       if (res.ok) {
@@ -154,7 +154,7 @@ export default function RightSideBar({ user }) {
       const stored = JSON.parse(localStorage.getItem('userInfo'));
       if (!stored?.token) return;
       const res = await fetch(
-        `https://kiratalk.onrender.com/api/messages/threads/${activeThread._id}`,
+        `https://kiratalk-1.onrender.com/api/messages/threads/${activeThread._id}`,
         {
           method: 'PUT',
           headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${stored.token}` },
