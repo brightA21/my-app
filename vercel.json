@@ -1,14 +1,8 @@
 {
-  "redirects": [
+  "rewrites": [
     {
-      "source": "/old-path",
-      "destination": "/new-path",
-      "permanent": true
-    },
-    {
-      "source": "/blog/:slug",
-      "destination": "/posts/:slug",
-      "permanent": false
+      "source": "/(.*)",
+      "destination": "/index.html"
     }
   ]
 }

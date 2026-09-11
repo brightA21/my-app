@@ -10,6 +10,9 @@ import App from './App.jsx'
 import { BrowserRouter as Router } from 'react-router-dom' 
 import { GoogleOAuthProvider } from '@react-oauth/google';
 
+const GOOGLE_CLIENT_ID =
+  import.meta.env.VITE_GOOGLE_CLIENT_ID ||
+  '833058213940-1lq04vk7h08foutneucofsd90870vs5a.apps.googleusercontent.com';
 
 // Put the React component tree inside the root element from index.html.
 createRoot(document.getElementById('root')).render(
@@ -17,7 +20,7 @@ createRoot(document.getElementById('root')).render(
     {/* Router lets pages change the URL without reloading the browser. */}
     <Router>
       {/* GoogleOAuthProvider gives GoogleLogin access to the public Client ID. */}
-      <GoogleOAuthProvider clientId={import.meta.env.VITE_GOOGLE_CLIENT_ID}>
+      <GoogleOAuthProvider clientId={GOOGLE_CLIENT_ID}>
         <App />
       </GoogleOAuthProvider>
     </Router>
